@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="mt-4">Course Search</h1>
+      <div class="input-group mt-3">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Enter text to search..."
+          name="query"
+          #query
+          (keyup.enter)="onSearch(query.value)"
+          (blur)="onSearch(query.value)"
+        >
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" (click)="onSearch(query.value)">Search</button>
+        </div>
+      </div>
+      <!--<div class="form-check mt-3">
+        <input class="form-check-input" type="checkbox" value="showRank" #displayRanks>
+        <label class="form-check-label">
+          Display ranks
+        </label>
+      </div>-->
+      <ul class="list-group list-group-flush mt-3" *ngIf="courses.length > 0">
+        <li class="list-group-item" *ngFor="let course of courses" [routerLink]="['.', course.id]">
+          <span class="font-weight-bold">{{ course.course_code }}</span> {{ course.title }}
+        </li>
+      </ul>
+      <!--<div class="table-responsive mt-3" *ngIf="courses.length > 0">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Course Code</th>
+              <th>Title</th>
+              <th *ngIf="displayRanks.checked">Exact Rank</th>
+              <th *ngIf="displayRanks.checked">Full Text Rank</th>
+              <th *ngIf="displayRanks.checked">Fuzzy Rank</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let course of courses">
+              <td>{{ course.course_code }}</td>
+              <td>{{ course.title }}</td>
+              <td *ngIf="displayRanks.checked">{{ course.exact_rank }}</td>
+              <td *ngIf="displayRanks.checked">{{ course.full_text_rank }}</td>
+              <td *ngIf="displayRanks.checked">{{ course.fuzzy_rank }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>-->
+      <p class="mt-3" *ngIf="courses.length === 0">No results.</p>
+    </div>
+  </div>
+</div>
