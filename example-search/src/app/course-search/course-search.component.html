@@ -23,7 +23,7 @@
         </label>
       </div>-->
       <ul class="list-group list-group-flush mt-3" *ngIf="courses.length > 0">
-        <li class="list-group-item" *ngFor="let course of courses" [routerLink]="['.', course.id]">
+        <li class="list-group-item" *ngFor="let course of courses" [routerLink]="['/course', course.id]">
           <span class="font-weight-bold">{{ course.course_code }}</span> {{ course.title }}
         </li>
       </ul>

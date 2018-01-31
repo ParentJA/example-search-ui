@@ -20,7 +20,7 @@ import { CourseResolver } from './course.resolver';
     HttpClientModule,
     BrowserModule,
     RouterModule.forRoot([
-      { path: ':id', component: CourseComponent, resolve: { course: CourseResolver } },
+      { path: 'course/:id', component: CourseComponent, resolve: { course: CourseResolver } },
       { path: '', component: CourseSearchComponent }
     ]),
     FormsModule
